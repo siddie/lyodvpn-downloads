@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LyodVPN — загрузка</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #0b1220; color: #e6edf6; line-height: 1.5;
+    display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+  }
+  main { width: 100%; max-width: 720px; padding: 40px 20px 64px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  .sub { color: #8aa0bd; margin: 0 0 32px; }
+  .platforms { display: grid; gap: 14px; }
+  .card {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: #131c2e; border: 1px solid #223049; border-radius: 12px; padding: 18px 20px;
+  }
+  .card h2 { font-size: 1.05rem; margin: 0; }
+  .card .file { color: #8aa0bd; font-size: .82rem; word-break: break-all; }
+  a.dl {
+    background: #3b82f6; color: #fff; text-decoration: none; font-weight: 600;
+    padding: 10px 18px; border-radius: 8px; white-space: nowrap;
+  }
+  a.dl:hover { background: #2f6fe0; }
+  .note {
+    margin-top: 28px; background: #1a2030; border-left: 3px solid #f0b429;
+    border-radius: 8px; padding: 14px 18px; font-size: .9rem; color: #cbd7e8;
+  }
+  .note b { color: #f0b429; }
+  #status { color: #8aa0bd; padding: 20px 0; }
+  .mirrors { margin-top: 28px; font-size: .88rem; color: #8aa0bd; }
+  .mirrors a { color: #7fb0ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>LyodVPN</h1>
+  <p class="sub">Последняя сборка клиента. Выберите вашу платформу.</p>
+
+  <div id="status">Загрузка списка версий…</div>
+  <div class="platforms" id="platforms"></div>
+
+  <div class="note">
+    <b>При установке:</b> сборки без подписи.<br>
+    Windows — <i>«Подробнее → Выполнить в любом случае»</i> в SmartScreen.<br>
+    macOS — правый клик по файлу → <i>«Открыть»</i> в обход Gatekeeper.<br>
+    Android — разрешите установку из этого источника.
+  </div>
+
+  <div class="mirrors">
+    Если эта страница недоступна, используйте зеркала:
+    Telegram-бот и прямые ссылки. <!-- TODO: добавить ссылки на зеркала -->
+  </div>
+</main>
+
+<script>
+  // Owner/repo of THIS public downloads repo. Update if you rename/move it.
+  const REPO = "siddie/lyodvpn-downloads";
+
+  function platformOf(name) {
+    const n = name.toLowerCase();
+    if (n.endsWith(".apk")) return { key: "android", label: "Android" };
+    if (n.endsWith(".exe") || n.endsWith(".msi")) return { key: "windows", label: "Windows" };
+    if (n.endsWith(".pkg") || n.endsWith(".dmg")) return { key: "macos", label: "macOS" };
+    if (n.endsWith(".run") || n.endsWith(".appimage") || n.endsWith(".deb")) return { key: "linux", label: "Linux" };
+    return { key: "other", label: "Другое" };
+  }
+
+  const ORDER = ["windows", "macos", "android", "linux", "other"];
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  async function load() {
+    const status = document.getElementById("status");
+    const box = document.getElementById("platforms");
+    try {
+      const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
+        headers: { "Accept": "application/vnd.github+json" }
+      });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const rel = await r.json();
+      const assets = rel.assets || [];
+      if (!assets.length) { status.textContent = "В последнем релизе пока нет файлов."; return; }
+
+      assets.sort((a, b) => ORDER.indexOf(platformOf(a.name).key) - ORDER.indexOf(platformOf(b.name).key));
+      status.textContent = "Версия: " + (rel.name || rel.tag_name);
+
+      for (const a of assets) {
+        const p = platformOf(a.name);
+        const card = el("div", "card");
+        const left = el("div");
+        left.append(el("h2", null, p.label));
+        left.append(el("div", "file", `${a.name} · ${(a.size / 1048576).toFixed(1)} MB`));
+        const link = el("a", "dl", "Скачать");
+        link.href = a.browser_download_url;
+        card.append(left, link);
+        box.append(card);
+      }
+    } catch (e) {
+      status.textContent = "Не удалось загрузить список автоматически. Откройте страницу релизов напрямую: ";
+      const link = el("a", null, "Releases");
+      link.href = `https://github.com/${REPO}/releases/latest`;
+      link.style.color = "#7fb0ff";
+      status.append(link);
+    }
+  }
+  load();
+</script>
+</body>
+</html>
