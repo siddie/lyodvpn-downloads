@@ -21,7 +21,7 @@ downloads.
 |----------|-------|
 | Windows  | `*.exe` (unsigned — *More info → Run anyway* past SmartScreen) |
 | macOS    | `*.pkg` (unsigned — right-click → *Open* past Gatekeeper) |
-| Android  | `*.apk` (allow install from this source) |
+| Android  | `LyodVPN_<version>_android_arm64.apk` (allow install from this source) |
 | Linux    | `*.run` |
 
 > Note: `*.github.io` and github.com are throttled in some censored networks. Treat this

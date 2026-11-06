@@ -110,6 +110,21 @@
     box-shadow: 0 0 26px rgba(120,228,255,.35);
   }
 
+  .history { margin-top: 46px; }
+  .history h3 {
+    font-family: "IBM Plex Mono", monospace; font-weight: 500;
+    font-size: .72rem; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  .history a {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding: 10px 4px; border-bottom: 1px solid var(--line);
+    font-family: "IBM Plex Mono", monospace; font-size: .78rem;
+    color: #a9bccf; text-decoration: none;
+  }
+  .history a:hover { color: var(--ice); }
+  .history .when { color: var(--muted); flex: none; }
+
   .note {
     margin-top: 46px; padding-top: 22px; border-top: 1px solid var(--line);
     font-size: .88rem; color: #a9bccf;
@@ -138,6 +153,11 @@
 
   <div id="status">Загрузка списка версий…</div>
   <div class="platforms" id="platforms"></div>
+
+  <div class="history" id="history" hidden>
+    <h3>Предыдущие версии</h3>
+    <div id="history-list"></div>
+  </div>
 
   <div class="note">
     <h3>Установка</h3>
@@ -175,37 +195,62 @@
     return e;
   }
 
+  // Dates follow the language of the browser.
+  const dateFmt = new Intl.DateTimeFormat(navigator.language || "ru", { day: "numeric", month: "long", year: "numeric" });
+  const dateTimeFmt = new Intl.DateTimeFormat(navigator.language || "ru", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+
+  // The CI workflows name a release "LyodVPN <version> (<short sha>)". Older
+  // releases are named "LyodVPN snapshot <short sha>": they show the name.
+  function versionOf(rel) {
+    const m = (rel.name || "").match(/\d+\.\d+\.\d+\.\d+/);
+    return m ? m[0] : (rel.name || rel.tag_name);
+  }
+
   async function load() {
     const status = document.getElementById("status");
     const box = document.getElementById("platforms");
     try {
-      const r = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`, {
+      const r = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=15`, {
         headers: { "Accept": "application/vnd.github+json" }
       });
       if (!r.ok) throw new Error("HTTP " + r.status);
-      const rel = await r.json();
+      const releases = (await r.json()).filter(rel => !rel.draft && !rel.prerelease);
+      if (!releases.length) { status.textContent = "Пока нет ни одного выпуска."; return; }
+      const rel = releases[0];
       const assets = rel.assets || [];
-      if (!assets.length) { status.textContent = "В последнем релизе пока нет файлов."; return; }
+
+      status.textContent = "Актуальная версия: " + versionOf(rel) + " · " + dateFmt.format(new Date(rel.published_at));
+      if (!assets.length) { status.textContent += " — файлы ещё собираются."; }
 
       assets.sort((a, b) => ORDER.indexOf(platformOf(a.name).key) - ORDER.indexOf(platformOf(b.name).key));
-      status.textContent = "Актуальная версия: " + (rel.name || rel.tag_name);
-
       assets.forEach((a, i) => {
         const p = platformOf(a.name);
         const row = el("div", "row");
         row.style.animationDelay = (i * 70) + "ms";
         const meta = el("div", "meta");
         meta.append(el("div", "plat", p.label));
-        meta.append(el("div", "file", `${a.name} · ${(a.size / 1048576).toFixed(1)} MB`));
+        meta.append(el("div", "file", `${a.name} · ${(a.size / 1048576).toFixed(1)} MB · ${dateTimeFmt.format(new Date(a.updated_at))}`));
         const link = el("a", "dl", "Скачать");
         link.href = a.browser_download_url;
         row.append(meta, link);
         box.append(row);
       });
+
+      const older = releases.slice(1);
+      if (older.length) {
+        const list = document.getElementById("history-list");
+        older.forEach(o => {
+          const a = el("a");
+          a.href = o.html_url;
+          a.append(el("span", null, versionOf(o)), el("span", "when", dateFmt.format(new Date(o.published_at))));
+          list.append(a);
+        });
+        document.getElementById("history").hidden = false;
+      }
     } catch (e) {
       status.textContent = "Не удалось загрузить список автоматически. Откройте страницу релизов: ";
       const link = el("a", null, "Releases →");
-      link.href = `https://github.com/${REPO}/releases/latest`;
+      link.href = `https://github.com/${REPO}/releases`;
       status.append(link);
     }
   }
