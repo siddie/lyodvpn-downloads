@@ -1,0 +1,57 @@
+# Writes releases.json (the list that index.html shows) and copies the newest
+# releases to the public Google Drive folder. See scripts/mirror.py for why.
+# The four build workflows of the private app repository add their files to one
+# release one after another, and adding a file sends no release event, so the
+# schedule picks up each new file.
+name: Mirror releases
+
+on:
+  release:
+    types: [published, edited]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install rclone
+        env:
+          RCLONE_VERSION: v1.71.2
+        run: |
+          curl -fsSL -o rclone.zip "https://downloads.rclone.org/${RCLONE_VERSION}/rclone-${RCLONE_VERSION}-linux-amd64.zip"
+          unzip -q rclone.zip
+          sudo install "rclone-${RCLONE_VERSION}-linux-amd64/rclone" /usr/local/bin/rclone
+          rm -rf rclone.zip "rclone-${RCLONE_VERSION}-linux-amd64"
+          rclone version | head -1
+
+      - name: Mirror and write releases.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRIVE_REMOTE: 'drive:LyodVPN'
+          DRIVE_KEEP_RELEASES: '2'
+          # rclone reads the remote "drive" from these variables. Scope drive.file:
+          # rclone sees only the files that it made, not the rest of the Drive.
+          RCLONE_CONFIG_DRIVE_TYPE: drive
+          RCLONE_CONFIG_DRIVE_SCOPE: drive.file
+          RCLONE_CONFIG_DRIVE_TOKEN: ${{ secrets.RCLONE_DRIVE_TOKEN }}
+        run: python3 scripts/mirror.py
+
+      - name: Commit releases.json when it changed
+        run: |
+          git add releases.json
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git -c user.name="lyodvpn-mirror" -c user.email="actions@users.noreply.github.com" \
+            commit -m "releases.json: update the release list"
+          git push
