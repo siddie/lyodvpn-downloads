@@ -1,0 +1,256 @@
+{
+ "drive_folder_url": "https://drive.google.com/open?id=14H1v94YnvFWBgr97XoWgCdhZgO4jwB6e",
+ "releases": [
+  {
+   "tag": "lyodvpn-540f230292e616913b80bbe602acd80a0964b203",
+   "name": "LyodVPN 4.9.0.2958 (540f230)",
+   "published_at": "2026-11-06T11:05:24Z",
+   "html_url": "https://github.com/siddie/lyodvpn-downloads/releases/tag/lyodvpn-540f230292e616913b80bbe602acd80a0964b203",
+   "assets": [
+    {
+     "name": "LyodVPN_4.9.0.2958_android_arm64.apk",
+     "size": 75573614,
+     "updated_at": "2026-11-06T11:12:52Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-540f230292e616913b80bbe602acd80a0964b203/LyodVPN_4.9.0.2958_android_arm64.apk",
+     "drive_url": "https://drive.google.com/uc?export=download&id=14O1pV1WVqPc0ZDiynj2-2W7O10V7PAhj"
+    },
+    {
+     "name": "LyodVPN_4.9.0.2958_linux_x64.run",
+     "size": 120504232,
+     "updated_at": "2026-11-06T11:13:36Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-540f230292e616913b80bbe602acd80a0964b203/LyodVPN_4.9.0.2958_linux_x64.run",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1J4To2QLTUuWnF9hunTW7y1yHkwAPYXDA"
+    },
+    {
+     "name": "LyodVPN_4.9.0.2958_macos_x64.pkg",
+     "size": 89497635,
+     "updated_at": "2026-11-06T11:05:22Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-540f230292e616913b80bbe602acd80a0964b203/LyodVPN_4.9.0.2958_macos_x64.pkg",
+     "drive_url": "https://drive.google.com/uc?export=download&id=12rQqbs5B1aP1FJFZfs8Snhw_BJzt2yqk"
+    },
+    {
+     "name": "LyodVPN_4.9.0.2958_windows_x64.exe",
+     "size": 112370972,
+     "updated_at": "2026-11-06T11:17:26Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-540f230292e616913b80bbe602acd80a0964b203/LyodVPN_4.9.0.2958_windows_x64.exe",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1vt6ZmryI5TR6wqL49C4hKV1fDAu-k1XS"
+    },
+    {
+     "name": "LyodVPN_4.9.0.2958_windows_x64.msi",
+     "size": 93217294,
+     "updated_at": "2026-11-06T11:17:25Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-540f230292e616913b80bbe602acd80a0964b203/LyodVPN_4.9.0.2958_windows_x64.msi",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1q7NPJqYfY-Vm52DUvdt7muwz_vRu6Z-c"
+    }
+   ]
+  },
+  {
+   "tag": "lyodvpn-bd15944380f2bd502cf8de74ddeea5f1b05b3f85",
+   "name": "LyodVPN snapshot bd15944",
+   "published_at": "2026-07-06T20:00:59Z",
+   "html_url": "https://github.com/siddie/lyodvpn-downloads/releases/tag/lyodvpn-bd15944380f2bd502cf8de74ddeea5f1b05b3f85",
+   "assets": [
+    {
+     "name": "LyodVPN.apk",
+     "size": 75532654,
+     "updated_at": "2026-07-06T20:10:33Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-bd15944380f2bd502cf8de74ddeea5f1b05b3f85/LyodVPN.apk",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1bG_TsmFe32Q8BbU1x-iNm-kgstFyE0KX"
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_linux_x64.run",
+     "size": 120183490,
+     "updated_at": "2026-07-06T20:08:08Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-bd15944380f2bd502cf8de74ddeea5f1b05b3f85/LyodVPN_4.9.0.1_linux_x64.run",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1OIVZ7XXzu1Yp0wdA0AC41nL6EyWut58J"
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_macos_x64.pkg",
+     "size": 89475285,
+     "updated_at": "2026-07-06T20:00:58Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-bd15944380f2bd502cf8de74ddeea5f1b05b3f85/LyodVPN_4.9.0.1_macos_x64.pkg",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1akE24LIrpc4qgV5vfSYWFyu4S1jwWLr0"
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.exe",
+     "size": 112363234,
+     "updated_at": "2026-07-06T20:15:30Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-bd15944380f2bd502cf8de74ddeea5f1b05b3f85/LyodVPN_4.9.0.1_windows_x64.exe",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1zdQP2wEegzrzvwie7shKff8Rdx9jpbzz"
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.msi",
+     "size": 93250059,
+     "updated_at": "2026-07-06T20:15:30Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-bd15944380f2bd502cf8de74ddeea5f1b05b3f85/LyodVPN_4.9.0.1_windows_x64.msi",
+     "drive_url": "https://drive.google.com/uc?export=download&id=1LCjepSrJlNya6-C9y4E96sfYUsC8K3NQ"
+    }
+   ]
+  },
+  {
+   "tag": "lyodvpn-b9b2ce3f3babf4907c33550e7be5c7cc72a45373",
+   "name": "LyodVPN snapshot b9b2ce3",
+   "published_at": "2026-11-06T10:31:34Z",
+   "html_url": "https://github.com/siddie/lyodvpn-downloads/releases/tag/lyodvpn-b9b2ce3f3babf4907c33550e7be5c7cc72a45373",
+   "assets": [
+    {
+     "name": "LyodVPN.apk",
+     "size": 75573614,
+     "updated_at": "2026-11-06T10:40:33Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-b9b2ce3f3babf4907c33550e7be5c7cc72a45373/LyodVPN.apk",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_linux_x64.run",
+     "size": 120506327,
+     "updated_at": "2026-11-06T10:39:59Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-b9b2ce3f3babf4907c33550e7be5c7cc72a45373/LyodVPN_4.9.0.1_linux_x64.run",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_macos_x64.pkg",
+     "size": 89503793,
+     "updated_at": "2026-11-06T10:31:33Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-b9b2ce3f3babf4907c33550e7be5c7cc72a45373/LyodVPN_4.9.0.1_macos_x64.pkg",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.exe",
+     "size": 112363762,
+     "updated_at": "2026-11-06T10:44:01Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-b9b2ce3f3babf4907c33550e7be5c7cc72a45373/LyodVPN_4.9.0.1_windows_x64.exe",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.msi",
+     "size": 93250059,
+     "updated_at": "2026-11-06T10:44:01Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-b9b2ce3f3babf4907c33550e7be5c7cc72a45373/LyodVPN_4.9.0.1_windows_x64.msi",
+     "drive_url": null
+    }
+   ]
+  },
+  {
+   "tag": "lyodvpn-5cbe3ee6db9ca2e0ab5fdd16d142b8ac452f665f",
+   "name": "LyodVPN snapshot 5cbe3ee",
+   "published_at": "2026-07-06T14:48:04Z",
+   "html_url": "https://github.com/siddie/lyodvpn-downloads/releases/tag/lyodvpn-5cbe3ee6db9ca2e0ab5fdd16d142b8ac452f665f",
+   "assets": [
+    {
+     "name": "LyodVPN.apk",
+     "size": 75464929,
+     "updated_at": "2026-07-06T14:53:03Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-5cbe3ee6db9ca2e0ab5fdd16d142b8ac452f665f/LyodVPN.apk",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_linux_x64.run",
+     "size": 120187218,
+     "updated_at": "2026-07-06T14:53:08Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-5cbe3ee6db9ca2e0ab5fdd16d142b8ac452f665f/LyodVPN_4.9.0.1_linux_x64.run",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_macos_x64.pkg",
+     "size": 89475297,
+     "updated_at": "2026-07-06T14:48:04Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-5cbe3ee6db9ca2e0ab5fdd16d142b8ac452f665f/LyodVPN_4.9.0.1_macos_x64.pkg",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.exe",
+     "size": 112354867,
+     "updated_at": "2026-07-06T14:59:55Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-5cbe3ee6db9ca2e0ab5fdd16d142b8ac452f665f/LyodVPN_4.9.0.1_windows_x64.exe",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.msi",
+     "size": 93295115,
+     "updated_at": "2026-07-06T14:59:55Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-5cbe3ee6db9ca2e0ab5fdd16d142b8ac452f665f/LyodVPN_4.9.0.1_windows_x64.msi",
+     "drive_url": null
+    }
+   ]
+  },
+  {
+   "tag": "lyodvpn-4b04b3f237ec53eb639ca23ec13aa3e98455c3a1",
+   "name": "LyodVPN snapshot 4b04b3f",
+   "published_at": "2026-11-05T19:19:18Z",
+   "html_url": "https://github.com/siddie/lyodvpn-downloads/releases/tag/lyodvpn-4b04b3f237ec53eb639ca23ec13aa3e98455c3a1",
+   "assets": [
+    {
+     "name": "LyodVPN.apk",
+     "size": 75573614,
+     "updated_at": "2026-11-05T19:19:17Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-4b04b3f237ec53eb639ca23ec13aa3e98455c3a1/LyodVPN.apk",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_linux_x64.run",
+     "size": 120519710,
+     "updated_at": "2026-11-05T19:26:02Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-4b04b3f237ec53eb639ca23ec13aa3e98455c3a1/LyodVPN_4.9.0.1_linux_x64.run",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_macos_x64.pkg",
+     "size": 89501232,
+     "updated_at": "2026-11-05T19:31:18Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-4b04b3f237ec53eb639ca23ec13aa3e98455c3a1/LyodVPN_4.9.0.1_macos_x64.pkg",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.exe",
+     "size": 112377321,
+     "updated_at": "2026-11-05T19:23:52Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-4b04b3f237ec53eb639ca23ec13aa3e98455c3a1/LyodVPN_4.9.0.1_windows_x64.exe",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.msi",
+     "size": 93323787,
+     "updated_at": "2026-11-05T19:23:55Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-4b04b3f237ec53eb639ca23ec13aa3e98455c3a1/LyodVPN_4.9.0.1_windows_x64.msi",
+     "drive_url": null
+    }
+   ]
+  },
+  {
+   "tag": "lyodvpn-2cf020edfa78abc62a72cd520638d12632512b00",
+   "name": "LyodVPN snapshot 2cf020e",
+   "published_at": "2026-07-06T19:46:10Z",
+   "html_url": "https://github.com/siddie/lyodvpn-downloads/releases/tag/lyodvpn-2cf020edfa78abc62a72cd520638d12632512b00",
+   "assets": [
+    {
+     "name": "LyodVPN_4.9.0.1_linux_x64.run",
+     "size": 120191848,
+     "updated_at": "2026-07-06T19:51:29Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-2cf020edfa78abc62a72cd520638d12632512b00/LyodVPN_4.9.0.1_linux_x64.run",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_macos_x64.pkg",
+     "size": 89475638,
+     "updated_at": "2026-07-06T19:46:09Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-2cf020edfa78abc62a72cd520638d12632512b00/LyodVPN_4.9.0.1_macos_x64.pkg",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.exe",
+     "size": 112350679,
+     "updated_at": "2026-07-06T19:53:59Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-2cf020edfa78abc62a72cd520638d12632512b00/LyodVPN_4.9.0.1_windows_x64.exe",
+     "drive_url": null
+    },
+    {
+     "name": "LyodVPN_4.9.0.1_windows_x64.msi",
+     "size": 93348363,
+     "updated_at": "2026-07-06T19:53:59Z",
+     "github_url": "https://github.com/siddie/lyodvpn-downloads/releases/download/lyodvpn-2cf020edfa78abc62a72cd520638d12632512b00/LyodVPN_4.9.0.1_windows_x64.msi",
+     "drive_url": null
+    }
+   ]
+  }
+ ]
+}
