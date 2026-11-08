@@ -46,6 +46,12 @@ jobs:
           RCLONE_CONFIG_DRIVE_TYPE: drive
           RCLONE_CONFIG_DRIVE_SCOPE: drive.file
           RCLONE_CONFIG_DRIVE_TOKEN: ${{ secrets.RCLONE_DRIVE_TOKEN }}
+          # The rclone Google app is shared by all rclone users, and Google limits its
+          # requests per minute (403 rateLimitExceeded, 2026-11-08). 128 MB pieces send
+          # each installer in one upload request (the default 8 MB needs about 12), and
+          # the low-level retries wait out a full minute of the limit.
+          RCLONE_DRIVE_CHUNK_SIZE: 128M
+          RCLONE_LOW_LEVEL_RETRIES: '30'
         run: python3 scripts/mirror.py
 
       - name: Commit releases.json when it changed
