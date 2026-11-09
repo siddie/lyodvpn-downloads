@@ -1,5 +1,5 @@
-# Writes releases.json (the list that index.html shows) and copies the newest
-# releases to the public Google Drive folder. See scripts/mirror.py for why.
+# Writes releases.json (the list that index.html shows) and copies the files of the newest
+# release into the public Google Drive folder. See scripts/mirror.py for why.
 # The four build workflows of the private app repository add their files to one
 # release one after another, and adding a file sends no release event, so the
 # schedule picks up each new file.
@@ -40,7 +40,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRIVE_REMOTE: 'drive:LyodVPN'
-          DRIVE_KEEP_RELEASES: '2'
           # rclone reads the remote "drive" from these variables. Scope drive.file:
           # rclone sees only the files that it made, not the rest of the Drive.
           RCLONE_CONFIG_DRIVE_TYPE: drive

@@ -13,7 +13,8 @@ private, and a private repo's releases are not publicly downloadable.
 
 Installers are pushed here automatically by the private source repo's CI. Every 15
 minutes `.github/workflows/mirror.yml` (`scripts/mirror.py`) writes `releases.json` and
-copies the files of the 2 newest releases to the public Google Drive folder `LyodVPN`
+copies the files of the newest release directly into the public Google Drive folder `LyodVPN`
+(no subfolders; the files of an older release are deleted there)
 (rclone, secret `RCLONE_DRIVE_TOKEN`, scope `drive.file`). The download page
 (`index.html`) reads `releases.json` from this site, not from api.github.com (which fails
 in Russia), and shows a GitHub and a Google Drive button for each file.
